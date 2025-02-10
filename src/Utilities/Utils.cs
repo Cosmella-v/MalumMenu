@@ -36,7 +36,7 @@ public static class Utils
     public static bool FungleIsActive => (MapNames)GameOptionsManager.Instance.CurrentGameOptions.MapId == MapNames.Fungle;
     // Show custom popup ingame
     // Found here: https://github.com/NuclearPowered/Reactor/blob/6eb0bf19c30733b78532dada41db068b2b247742/Reactor/Networking/Patches/HttpPatches.cs
-    public static void showPopup(string text){
+    public static void showPopup(string text){ 
         var popup = Object.Instantiate(DiscordManager.Instance.discordPopup, Camera.main!.transform);
         
         var background = popup.transform.Find("Background").GetComponent<SpriteRenderer>();
