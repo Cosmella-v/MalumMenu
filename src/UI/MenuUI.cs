@@ -33,26 +33,6 @@ public class MenuUI : MonoBehaviour
             windowRect.position = new Vector2(mousePosition.x, Screen.height - mousePosition.y);
         }
 
-        //Passive cheats are always on to avoid problems
-        CheatToggles.unlockFeatures = CheatToggles.freeCosmetics = CheatToggles.avoidBans = true;
-
-        if(!Utils.isPlayer){
-            CheatToggles.changeRole = CheatToggles.killAll = CheatToggles.telekillPlayer = CheatToggles.killAllCrew = CheatToggles.killAllImps = CheatToggles.teleportCursor = CheatToggles.teleportPlayer = CheatToggles.spectate = CheatToggles.freecam = CheatToggles.killPlayer = false;
-        }
-
-        if(!Utils.isHost && !Utils.isFreePlay){
-            CheatToggles.killAll = CheatToggles.telekillPlayer = CheatToggles.killAllCrew = CheatToggles.killAllImps = CheatToggles.killPlayer = CheatToggles.zeroKillCd = CheatToggles.killAnyone = CheatToggles.killVanished = false;
-        }
-
-        //Host-only cheats are turned off if LocalPlayer is not the game's host
-        //if(!CheatChecks.isHost){
-        //    CheatToggles.voteImmune = CheatToggles.godMode = CheatToggles.impostorHack = CheatToggles.evilVote = false;
-        //}
-
-        //Some cheats only work if the ship is present, so they are turned off if it is not
-        if(!Utils.isShip){
-            CheatToggles.unfixableLights = CheatToggles.completeMyTasks = CheatToggles.kickVents = CheatToggles.reportBody = CheatToggles.closeMeeting = CheatToggles.reactorSab = CheatToggles.oxygenSab = CheatToggles.commsSab = CheatToggles.elecSab = CheatToggles.mushSab = CheatToggles.doorsSab = false;
-        }
     }
 
     public void OnGUI()
