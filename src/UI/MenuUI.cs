@@ -33,6 +33,7 @@ public class MenuUI : MonoBehaviour
             windowRect.position = new Vector2(mousePosition.x, Screen.height - mousePosition.y);
         }
 
+
     }
 
     public void OnGUI()

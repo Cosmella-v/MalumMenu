@@ -34,6 +34,25 @@ public static class Utils
     public static bool DleksIsActive => (MapNames)GameOptionsManager.Instance.CurrentGameOptions.MapId == MapNames.Dleks;
     public static bool AirshipIsActive => (MapNames)GameOptionsManager.Instance.CurrentGameOptions.MapId == MapNames.Airship;
     public static bool FungleIsActive => (MapNames)GameOptionsManager.Instance.CurrentGameOptions.MapId == MapNames.Fungle;
+    
+     public static KeyCode stringToKeycode(string keyCodeStr){
+
+        if(!string.IsNullOrEmpty(keyCodeStr)){ // Empty strings are automatically invalid
+
+            try{
+                
+                // Case-insensitive parse of UnityEngine.KeyCode to check if string is validssss
+                KeyCode keyCode = (KeyCode)System.Enum.Parse(typeof(KeyCode), keyCodeStr, true);
+                
+                return keyCode;
+
+            }catch{}
+        
+        }
+
+        return KeyCode.Delete; // If string is invalid, return Delete as the default key
+    }
+
     // Show custom popup ingame
     // Found here: https://github.com/NuclearPowered/Reactor/blob/6eb0bf19c30733b78532dada41db068b2b247742/Reactor/Networking/Patches/HttpPatches.cs
     public static void showPopup(string text){ 
