@@ -5,6 +5,20 @@ using UnityEngine;
 
 
 
+[HarmonyPatch(typeof(PlayerTab), nameof(PlayerTab.Update))]
+public static class PlayerTabIsSelectedItemEquippedPatch
+{
+    public static void Postfix(PlayerTab __instance)
+    {
+        if (CheatToggles.Any_colors)
+        {
+            __instance.currentColorIsEquipped = false;
+        }
+        
+    }
+
+
+}
 [HarmonyPatch(typeof(PlayerTab), nameof(PlayerTab.UpdateAvailableColors))]
 public static class PlayerTabUpdateAvailableColorsPatch
 {
@@ -27,21 +41,12 @@ public static class PlayerTabUpdateAvailableColorsPatch
 [HarmonyPatch(typeof(PingTracker), nameof(PingTracker.Update))]
 public static class PingTracker_Update
 {
-    // Postfix patch of PingTracker.Update to show mod name & ping
+    // Postfix patch of PingTracker.Update to ping
     public static void Postfix(PingTracker __instance)
     {
-        __instance.text.alignment = TMPro.TextAlignmentOptions.Center;
-
-        if (AmongUsClient.Instance.IsGameStarted)
-        {
-
-            __instance.text.text = $"{Utils.getColoredPingText(AmongUsClient.Instance.Ping)}";
-
-            return;
-        }
+        if (!CheatToggles.Ping_Colors) return;
 
         __instance.text.text = $"{Utils.getColoredPingText(AmongUsClient.Instance.Ping)}";
-
     }
 }
 
