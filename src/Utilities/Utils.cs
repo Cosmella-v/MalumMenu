@@ -34,8 +34,30 @@ public static class Utils
     public static bool DleksIsActive => (MapNames)GameOptionsManager.Instance.CurrentGameOptions.MapId == MapNames.Dleks;
     public static bool AirshipIsActive => (MapNames)GameOptionsManager.Instance.CurrentGameOptions.MapId == MapNames.Airship;
     public static bool FungleIsActive => (MapNames)GameOptionsManager.Instance.CurrentGameOptions.MapId == MapNames.Fungle;
-    
-     public static KeyCode stringToKeycode(string keyCodeStr){
+
+    public static string getColoredPingText(int ping)
+    {
+
+        if (ping <= 100)
+        { // Green for ping < 100
+
+            return $"<color=#00ff00ff>PING: {ping} ms</color>";
+
+        }
+        else if (ping < 400)
+        { // Yellow for 100 < ping < 400
+
+            return $"<color=#ffff00ff>PING: {ping} ms</color>";
+
+        }
+        else
+        { // Red for ping > 400
+
+            return $"<color=#ff0000ff>PING: {ping} ms</color>";
+        }
+    }
+
+    public static KeyCode stringToKeycode(string keyCodeStr){
 
         if(!string.IsNullOrEmpty(keyCodeStr)){ // Empty strings are automatically invalid
 

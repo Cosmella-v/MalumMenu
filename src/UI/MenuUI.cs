@@ -14,11 +14,15 @@ public class MenuUI : MonoBehaviour
     // Create all groups (buttons) and their toggles on start
     private void Start()
     {
-        groups.Add(new GroupInfo("Passive", false, new List<ToggleInfo>() {
+        groups.Add(new GroupInfo("Normal", false, new List<ToggleInfo>() {
             new ToggleInfo(" Free Cosmetics", () => CheatToggles.freeCosmetics, x => CheatToggles.freeCosmetics = x),
             new ToggleInfo(" Avoid Penalties", () => CheatToggles.avoidBans, x => CheatToggles.avoidBans = x),
             new ToggleInfo(" Unlock Extra Features", () => CheatToggles.unlockFeatures, x => CheatToggles.unlockFeatures = x),
         }, new List<SubmenuInfo>()));
+        groups.Add(new GroupInfo("Cheating?", false, new List<ToggleInfo>() {
+            new ToggleInfo("Any color", () => CheatToggles.Any_colors, x => CheatToggles.Any_colors = x),
+        }, new List<SubmenuInfo>()));
+
     }
 
     private void Update(){
@@ -81,7 +85,7 @@ public class MenuUI : MonoBehaviour
             GUI.backgroundColor = uiColor;
         }
 
-        windowRect = GUI.Window(0, windowRect, (GUI.WindowFunction)WindowFunction, "MalumMenu v" + MalumMenu.malumVersion);
+        windowRect = GUI.Window(0, windowRect, (GUI.WindowFunction)WindowFunction, "MalumMenu forked");
     }
 
     public void WindowFunction(int windowID)
