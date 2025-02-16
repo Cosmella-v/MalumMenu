@@ -15,13 +15,14 @@ public class MenuUI : MonoBehaviour
     private void Start()
     {
         groups.Add(new GroupInfo("Normal", false, new List<ToggleInfo>() {
-            new ToggleInfo(" Ping Colors", () => CheatToggles.Ping_Colors, x => CheatToggles.Ping_Colors = x),
             new ToggleInfo(" Free Cosmetics", () => CheatToggles.freeCosmetics, x => CheatToggles.freeCosmetics = x),
             new ToggleInfo(" Avoid Penalties", () => CheatToggles.avoidBans, x => CheatToggles.avoidBans = x),
             new ToggleInfo(" Unlock Extra Features", () => CheatToggles.unlockFeatures, x => CheatToggles.unlockFeatures = x),
         }, new List<SubmenuInfo>()));
-        groups.Add(new GroupInfo("Host only", false, new List<ToggleInfo>() {
-            new ToggleInfo("Any color", () => CheatToggles.Any_colors, x => CheatToggles.Any_colors = x),
+        groups.Add(new GroupInfo("Visual only", false, new List<ToggleInfo>() {
+            new ToggleInfo(" Any color selected", () => CheatToggles.Any_colors, x => CheatToggles.Any_colors = x),
+            new ToggleInfo(" Ping Colors", () => CheatToggles.Ping_Colors, x => CheatToggles.Ping_Colors = x),
+            new ToggleInfo(" No Voting Text", () => CheatToggles.Dont_Show_VotingText, x => CheatToggles.Dont_Show_VotingText = x),
         }, new List<SubmenuInfo>()));
 
     }

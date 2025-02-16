@@ -3,6 +3,22 @@ using HarmonyLib;
 using MalumMenu;
 using UnityEngine;
 
+[HarmonyPatch(typeof(ChatController), nameof(ChatController.AddChatNote))]
+public static class ChatController_AddChatNote
+{
+    // Prefix patch of ChatController.AddChatNote to skip the message
+    public static bool Prefix(NetworkedPlayerInfo srcPlayer, ChatNoteTypes noteType)
+    {
+        if (CheatToggles.Dont_Show_VotingText)
+        {
+            if (noteType == ChatNoteTypes.DidVote)
+            {
+                return false; // Skips the original method completly
+            }
+        }
+        return true;
+    }
+}
 
 
 [HarmonyPatch(typeof(PlayerTab), nameof(PlayerTab.Update))]

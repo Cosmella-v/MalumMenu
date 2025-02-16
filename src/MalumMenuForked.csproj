@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <LangVersion>latest</LangVersion>
@@ -6,7 +6,7 @@
 
         <VersionPrefix>2.5.0</VersionPrefix>
         <Description>all play and no cheats makes among us a dull game</Description>
-        <Authors>scp222thj</Authors>
+        <Authors>scp222thj, Viper</Authors>
     </PropertyGroup>
 
     <!--<ItemGroup>
